@@ -6,11 +6,18 @@
     <string name="open_drawer">open drawer</string>
     <string name="close_drawer">close drawer</string>
     <string name="fab_content_desc">add doctor</string>
+    <string name="fab_content_desc1">add pertemuan</string>
     <string name="btn_simpan">SIMPAN</string>
     <string name="nama">Nama</string>
     <string name="dokter">Dokter</string>
     <string name="keluhan">Keluhan</string>
-    <string name="tanggal">Tanggal</string>
-    <string name="waktu">Waktu</string>
+    <string name="tanggal">Pilih Tanggal</string>
+    <string name="waktu">Pilih Waktu</string>
     <string name="title_pertemuan">APPOINTMENT</string>
+    <string name="spesialis">Spesialis</string>
+    <string name="no_telp">Nomor Telepon</string>
+    <string name="add">ADD</string>
+    <string name="cancel">CANCEL</string>
+    <string name="daftar_dokter">Daftar Dokter</string>
+    <string name="daftar_pertemuan">Daftar Pertemuan</string>
 </resources>

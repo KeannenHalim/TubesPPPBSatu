@@ -32,7 +32,7 @@ public class HomeFragment extends Fragment {
     private void onClick(View view) {
         FragmentManager fm = getParentFragmentManager();
         Bundle bundle = new Bundle();
-        bundle.putInt("page",2);
+        bundle.putInt("page",5);
         fm.setFragmentResult("changePage",bundle);
     }
 }

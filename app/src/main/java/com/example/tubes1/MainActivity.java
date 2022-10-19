@@ -22,17 +22,20 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
     private HashMap<String, Fragment> mp;
     private FragmentManager fm;
     private Toolbar toolbar;
+    private Presenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = this.binding.getRoot();
         setContentView(view);
-
+        this.presenter = new Presenter(this,this);
         this.mp = new HashMap<>();
         this.mp.put("HomeFragment", HomeFragment.newInstance());
-        this.mp.put("DokterFragment", DokterFragment.newInstance());
+        this.mp.put("DaftarDokterFragment", DaftarDokterFragment.newInstance(this.presenter));
         this.mp.put("PertemuanFragment", PertemuanFragment.newInstance());
+        this.mp.put("DaftarPertemuanFragment", DaftarPertemuanFragment.newInstance(this.presenter));
+
         //set toolbar
         this.toolbar = this.binding.toolbar;
         this.setSupportActionBar(toolbar);
@@ -46,7 +49,9 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
         this.fm = this.getSupportFragmentManager();
         FragmentTransaction ft = this.fm.beginTransaction();
 //        ft.add(this.binding.fragmentContainer.getId(),this.mp.get("HomeFragment"))
-        ft.add(this.binding.fragmentContainer.getId(),this.mp.get("PertemuanFragment"))
+//        ft.add(this.binding.fragmentContainer.getId(),this.mp.get("PertemuanFragment"))
+//        ft.add(this.binding.fragmentContainer.getId(),this.mp.get("DaftarDokterFragment"))
+        ft.add(this.binding.fragmentContainer.getId(),this.mp.get("DaftarPertemuanFragment"))
                 .commit();
 
         this.fm.setFragmentResultListener(
@@ -70,18 +75,75 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
                         .addToBackStack("Home");
             }
 
-//            if(this.mp.get("DokterFragment").isAdded()){
-//                ft.hide(this.mp.get("DokterFragment"));
-//            }
-//
-//
-//            if(this.mp.get("PertemuanFragment").isAdded()){
-//                ft.hide(this.mp.get("PertemuanFragment"));
-//            }
+            if(this.mp.get("DaftarDokterFragment").isAdded()){
+                ft.hide(this.mp.get("DokterFragment"));
+            }
+
+            if(this.mp.get("PertemuanFragment").isAdded()){
+                ft.hide(this.mp.get("PertemuanFragment"));
+            }
+
+            if(this.mp.get("DaftarPertemuanFragment").isAdded()){
+                ft.hide(this.mp.get("DaftarPertemuanFragment"));
+            }
         }else if(page == 2){
+            if(this.mp.get("DaftarPertemuanFragment").isAdded()){
+                ft.show(this.mp.get("DaftarPertemuanFragment"));
+            }else{
+                ft.add(this.binding.fragmentContainer.getId(), this.mp.get("DaftarPertemuanFragment"))
+                        .addToBackStack("DaftarPertemuanFragment");
+            }
 
+            if(this.mp.get("HomeFragment").isAdded()){
+                ft.hide(this.mp.get("HomeFragment"));
+            }
+
+            if(this.mp.get("DaftarDokterFragment").isAdded()){
+                ft.hide(this.mp.get("DaftarDokterFragment"));
+            }
+
+            if(this.mp.get("PertemuanFragment").isAdded()){
+                ft.hide(this.mp.get("PertemuanFragment"));
+            }
         }else if(page == 3){
+            if(this.mp.get("DaftarDokterFragment").isAdded()){
+                ft.show(this.mp.get("DaftarDokterFragment"));
+            }else{
+                ft.add(this.binding.fragmentContainer.getId(), this.mp.get("DaftarDokterFragment"))
+                        .addToBackStack("DaftarDokter");
+            }
 
+            if(this.mp.get("HomeFragment").isAdded()){
+                ft.hide(this.mp.get("HomeFragment"));
+            }
+
+            if(this.mp.get("DaftarPertemuanFragment").isAdded()){
+                ft.hide(this.mp.get("DaftarPertemuanFragment"));
+            }
+
+            if(this.mp.get("PertemuanFragment").isAdded()){
+                ft.hide(this.mp.get("PertemuanFragment"));
+            }
+
+        }else if(page == 5){
+            if(this.mp.get("PertemuanFragment").isAdded()){
+                ft.show(this.mp.get("PertemuanFragment"));
+            }else{
+                ft.add(this.binding.fragmentContainer.getId(), this.mp.get("PertemuanFragment"))
+                        .addToBackStack("Pertemuan");
+            }
+
+            if(this.mp.get("HomeFragment").isAdded()){
+                ft.hide(this.mp.get("HomeFragment"));
+            }
+
+            if(this.mp.get("DaftarPertemuanFragment").isAdded()){
+                ft.hide(this.mp.get("DaftarPertemuanFragment"));
+            }
+
+            if(this.mp.get("DaftarDokterFragment").isAdded()){
+                ft.hide(this.mp.get("DaftarDokterFragment"));
+            }
         }
         ft.commit();
 
@@ -97,11 +159,15 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
 
     @Override
     public void updateListDokter(List<Dokter> dokters) {
-
+       DaftarDokterFragment fragment = (DaftarDokterFragment) this.mp.get("DokterFragment");
+       fragment.updateListDokter(dokters);
     }
 
     @Override
     public void updateListPertemuan(List<Pertemuan> pertemuans) {
-
+        DaftarPertemuanFragment fragment = (DaftarPertemuanFragment) this.mp.get("DaftarPertemuanFragment");
+        fragment.updateListPertemuan(pertemuans);
     }
+
+
 }
