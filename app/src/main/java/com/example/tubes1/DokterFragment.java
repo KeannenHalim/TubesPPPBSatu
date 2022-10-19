@@ -9,21 +9,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.tubes1.databinding.FragmentMenuBinding;
+import com.example.tubes1.databinding.FragmentDokterBinding;
 
-public class MenuFragment extends Fragment {
-    private FragmentMenuBinding binding;
-    private MenuListAdapter adapter;
-    public MenuFragment(){}
+public class DokterFragment extends Fragment {
+    private FragmentDokterBinding binding;
+
+    private DokterFragment(){}
+    public static DokterFragment newInstance(){
+        DokterFragment fragment = new DokterFragment();
+        return fragment;
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        this.binding = FragmentMenuBinding.inflate(inflater);
+        this.binding = FragmentDokterBinding.inflate(inflater);
         View view = this.binding.getRoot();
-        this.adapter = new MenuListAdapter(getActivity(),getParentFragmentManager());
-        this.adapter.addLine(DaftarMenu.menu);
-        this.binding.listView.setAdapter(this.adapter);
         return view;
     }
 }

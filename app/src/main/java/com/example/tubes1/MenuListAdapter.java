@@ -8,29 +8,32 @@ import android.widget.BaseAdapter;
 
 import androidx.fragment.app.FragmentManager;
 
-import com.example.tubes1.databinding.ListMenuBinding;
+import com.example.tubes1.databinding.ItemListMenuBinding;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MenuListAdapter extends BaseAdapter {
-    private ArrayList<String> lst;
+    private List<String> lst;
     private Activity activity;
     private FragmentManager fm;
+
     public MenuListAdapter(Activity activity, FragmentManager fm){
         this.lst = new ArrayList<>();
         this.activity = activity;
         this.fm = fm;
     }
 
-    public void addLine(String menu){
-        this.lst.add(menu);
-        this.notifyDataSetChanged();
+    public void addLine(String[] menu){
+        List<String> temp = Arrays.asList(menu);
+        this.lst.addAll(temp);
     }
 
     private class ViewHolder{
-        private ListMenuBinding binding;
+        private ItemListMenuBinding binding;
         private int idx;
-        public ViewHolder(ListMenuBinding binding, int position){
+        public ViewHolder(ItemListMenuBinding binding, int position){
             this.binding = binding;
             this.binding.lstMenu.setOnClickListener(this::onClick);
             this.idx = position;
@@ -64,7 +67,7 @@ public class MenuListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
-        ListMenuBinding binding = ListMenuBinding.inflate(this.activity.getLayoutInflater());
+        ItemListMenuBinding binding = ItemListMenuBinding.inflate(this.activity.getLayoutInflater());
         viewHolder = new ViewHolder(binding, position);
         View itemview = binding.getRoot();
         viewHolder.setMenu(position);
