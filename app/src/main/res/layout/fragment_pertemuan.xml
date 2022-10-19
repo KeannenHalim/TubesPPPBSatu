@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <RelativeLayout
@@ -62,15 +63,18 @@
                     android:layout_weight="0.15">
                 </LinearLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/et_dokter"
+                    android:id="@+id/dokter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="@string/dokter"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                     android:layout_weight="0.7">
-                    <com.google.android.material.textfield.TextInputEditText
+
+                    <AutoCompleteTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="none"
+                        app:simpleItems="@array/simple_items"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
                 <LinearLayout
