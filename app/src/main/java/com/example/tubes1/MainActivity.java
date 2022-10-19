@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
         this.mp = new HashMap<>();
         this.mp.put("HomeFragment", HomeFragment.newInstance());
         this.mp.put("DokterFragment", DokterFragment.newInstance());
+        this.mp.put("PertemuanFragment", PertemuanFragment.newInstance());
         //set toolbar
         this.toolbar = this.binding.toolbar;
         this.setSupportActionBar(toolbar);
@@ -44,7 +45,8 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
         //fragment manager
         this.fm = this.getSupportFragmentManager();
         FragmentTransaction ft = this.fm.beginTransaction();
-        ft.add(this.binding.fragmentContainer.getId(),this.mp.get("HomeFragment"))
+//        ft.add(this.binding.fragmentContainer.getId(),this.mp.get("HomeFragment"))
+        ft.add(this.binding.fragmentContainer.getId(),this.mp.get("PertemuanFragment"))
                 .commit();
 
         this.fm.setFragmentResultListener(

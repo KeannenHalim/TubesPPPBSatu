@@ -12,4 +12,5 @@
     <string name="keluhan">Keluhan</string>
     <string name="tanggal">Tanggal</string>
     <string name="waktu">Waktu</string>
+    <string name="title_pertemuan">APPOINTMENT</string>
 </resources>
