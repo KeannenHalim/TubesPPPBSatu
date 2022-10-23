@@ -6,11 +6,68 @@
     android:orientation="horizontal"
     android:id="@+id/pertemuan_container">
 
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""></TextView>
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="@string/namaPasien"></TextView>
+            <TextView
+                android:id="@+id/tv_namaPasien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="@string/namaDokter"></TextView>
+            <TextView
+                android:id="@+id/tv_namaDokter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="@string/tanggalDatang"></TextView>
+
+            <TextView
+                android:id="@+id/tv_tanggal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="@string/waktuDatang"></TextView>
+
+            <TextView
+                android:id="@+id/tv_waktu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+        </LinearLayout>
+
+    </LinearLayout>
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

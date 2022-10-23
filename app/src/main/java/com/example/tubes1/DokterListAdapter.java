@@ -71,7 +71,9 @@ public class DokterListAdapter extends BaseAdapter {
         }
 
         public void updateView(int idx){
-            this.binding.tvName.setText(lst.get(idx).getNama());
+            this.binding.tvNama.setText(lst.get(idx).getNama());
+            this.binding.tvSpesialis.setText(lst.get(idx).getSpecialist());
+            this.binding.tvTelepon.setText(lst.get(idx).getNoTelepon());
         }
     }
 

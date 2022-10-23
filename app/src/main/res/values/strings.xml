@@ -9,6 +9,10 @@
     <string name="fab_content_desc1">add pertemuan</string>
     <string name="btn_simpan">SIMPAN</string>
     <string name="nama">Nama</string>
+    <string name="namaPasien">Nama Pasien</string>
+    <string name="namaDokter">Nama Dokter</string>
+    <string name="tanggalDatang">Tanggal</string>
+    <string name="waktuDatang">Waktu</string>
     <string name="dokter">Dokter</string>
     <string name="keluhan">Keluhan</string>
     <string name="tanggal">Pilih Tanggal</string>

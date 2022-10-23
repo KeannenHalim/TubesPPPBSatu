@@ -50,9 +50,7 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
         this.fm = this.getSupportFragmentManager();
         FragmentTransaction ft = this.fm.beginTransaction();
         ft.add(this.binding.fragmentContainer.getId(),this.mp.get("HomeFragment"))
-//        ft.add(this.binding.fragmentContainer.getId(),this.mp.get("PertemuanFragment"))
-//        ft.add(this.binding.fragmentContainer.getId(),this.mp.get("DaftarDokterFragment"))
-//        ft.add(this.binding.fragmentContainer.getId(),this.mp.get("DaftarPertemuanFragment"))
+                .addToBackStack(null)
                 .commit();
 
         this.fm.setFragmentResultListener(
@@ -73,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
                 ft.show(this.mp.get("HomeFragment"));
             }else{
                 ft.add(this.binding.fragmentContainer.getId(), this.mp.get("HomeFragment"))
-                        .addToBackStack("Home");
+                        .addToBackStack(null);
             }
 
             if(this.mp.get("DaftarDokterFragment").isAdded()){
@@ -92,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
                 ft.show(this.mp.get("DaftarPertemuanFragment"));
             }else{
                 ft.add(this.binding.fragmentContainer.getId(), this.mp.get("DaftarPertemuanFragment"))
-                        .addToBackStack("DaftarPertemuanFragment");
+                        .addToBackStack(null);
             }
 
             if(this.mp.get("HomeFragment").isAdded()){
@@ -111,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
                 ft.show(this.mp.get("DaftarDokterFragment"));
             }else{
                 ft.add(this.binding.fragmentContainer.getId(), this.mp.get("DaftarDokterFragment"))
-                        .addToBackStack("DaftarDokter");
+                        .addToBackStack(null);
             }
 
             if(this.mp.get("HomeFragment").isAdded()){
@@ -131,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
                 ft.show(this.mp.get("PertemuanFragment"));
             }else{
                 ft.add(this.binding.fragmentContainer.getId(), this.mp.get("PertemuanFragment"))
-                        .addToBackStack("Pertemuan");
+                        .addToBackStack(null);
             }
 
             if(this.mp.get("HomeFragment").isAdded()){

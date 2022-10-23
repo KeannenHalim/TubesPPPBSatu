@@ -69,8 +69,10 @@ public class PertemuanListAdapter extends BaseAdapter {
         }
 
         public void updateView(int position){
-//            Log.d("messss",lst.get(position).getNamaPasien());
-            this.binding.tvName.setText(lst.get(position).getNamaPasien());
+            this.binding.tvNamaPasien.setText(lst.get(position).getNamaPasien());
+            this.binding.tvNamaDokter.setText(lst.get(idx).getNamaDokter());
+            this.binding.tvTanggal.setText(lst.get(idx).getTanggal());
+            this.binding.tvWaktu.setText(lst.get(idx).getWaktu());
         }
     }
 

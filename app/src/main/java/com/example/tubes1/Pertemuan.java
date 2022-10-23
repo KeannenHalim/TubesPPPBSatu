@@ -81,5 +81,8 @@ public class Pertemuan {
         this.status = status;
     }
 
+    public void toggleStatus(){
+        this.status = !status;
+    }
 
 }
