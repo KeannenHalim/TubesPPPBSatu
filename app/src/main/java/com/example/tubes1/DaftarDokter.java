@@ -61,7 +61,7 @@ public class DaftarDokter {
             );
 
             String spesialis = cursor.getString(
-                    cursor.getColumnIndexOrThrow((FeedReaderContract.FeedDokter.COLUMN_NAME_NAMA))
+                    cursor.getColumnIndexOrThrow((FeedReaderContract.FeedDokter.COLUMN_NAME_SPESIALIS))
             );
 
             String telepon = cursor.getString(
