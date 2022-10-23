@@ -35,6 +35,7 @@ public class DaftarPertemuanFragment extends Fragment implements IPertemuan {
         this.adapter = new PertemuanListAdapter(getActivity(),getParentFragmentManager(), this.presenter);
         this.binding.lstPertemuan.setAdapter(adapter);
         this.binding.floatingActionButton.setOnClickListener(this::onClickAdd);
+        this.presenter.loadPertemuan();
         return view;
     }
 
@@ -48,6 +49,12 @@ public class DaftarPertemuanFragment extends Fragment implements IPertemuan {
     private void onClick(View view) {
         AddDokterDialogFragment fragment = AddDokterDialogFragment.newInstance(this.presenter);
         fragment.show(this.getParentFragmentManager().beginTransaction(),"dialog");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        this.presenter.loadPertemuan();
     }
 
     @Override

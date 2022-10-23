@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
+
 public class DokterListAdapter extends BaseAdapter {
     private List<Dokter> lst;
     private Activity activity;

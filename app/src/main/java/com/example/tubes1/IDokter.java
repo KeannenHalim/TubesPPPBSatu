@@ -4,4 +4,5 @@ import java.util.List;
 
 public interface IDokter {
     void updateListDokter(List<Dokter> dokters);
+//    void updateDropdownDokter(List<Dokter> dokters);
 }

@@ -26,7 +26,18 @@ public class DatePickerFragment extends DialogFragment
     public void onDateSet(DatePicker view, int year, int month, int day) {
         // Do something with the date chosen by the user
         Bundle bundle = new Bundle();
-        String date = day +"/"+ (month+1) +"/"+year;
+        String hari = Integer.toString(day);
+        String bulan = Integer.toString(month+1);
+        String tahun = Integer.toString(year);
+        if(month+1 < 10){
+            bulan = "0"+bulan;
+        }
+
+        if(day < 10){
+            hari = "0"+hari;
+        }
+
+        String date = hari +"/"+ bulan +"/"+tahun;
         bundle.putString("date", date);
         FragmentManager fm = getParentFragmentManager();
         fm.setFragmentResult("Datadate",bundle);

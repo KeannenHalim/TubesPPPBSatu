@@ -25,7 +25,16 @@ public class TimePickerFragment extends DialogFragment
     }
 
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        String time = hourOfDay +":"+minute;
+        String jam = Integer.toString(hourOfDay);
+        if(hourOfDay < 10){
+            jam = "0"+jam;
+        }
+
+        String menit = Integer.toString(minute);
+        if(minute < 10){
+            menit = "0"+menit;
+        }
+        String time = jam +":"+menit;
         Bundle bundle = new Bundle();
         bundle.putString("time",time);
         FragmentManager fm = getParentFragmentManager();

@@ -32,11 +32,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.8"
-                android:hint="@string/nama">
+                android:hint= "@string/nama">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:id="@+id/namaPasien"/>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -57,7 +58,7 @@
                 <AutoCompleteTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="none" />
+                    android:id="@+id/choice"/>
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
@@ -78,7 +79,8 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:id="@+id/keluhan"/>
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
@@ -148,5 +150,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
-        android:text="@string/btn_simpan"></Button>
+        android:text="@string/btn_simpan"
+        android:id="@+id/btn_simpan"></Button>
 </RelativeLayout>

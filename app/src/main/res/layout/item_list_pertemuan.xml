@@ -5,12 +5,12 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:id="@+id/pertemuan_container">
+
     <TextView
+        android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/tv_name">
-    </TextView>
+        android:text=""></TextView>
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

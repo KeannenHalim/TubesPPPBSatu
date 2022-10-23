@@ -21,4 +21,14 @@ public class Dokter{
     public String getSpecialist(){
         return this.specialist;
     }
+
+    public String getNoTelepon(){return this.noTelepon;}
+
+    public int getId(){
+        return this.id;
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
 }

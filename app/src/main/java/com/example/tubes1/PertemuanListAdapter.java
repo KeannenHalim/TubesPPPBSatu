@@ -3,6 +3,7 @@ package com.example.tubes1;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -66,6 +67,11 @@ public class PertemuanListAdapter extends BaseAdapter {
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
         }
+
+        public void updateView(int position){
+//            Log.d("messss",lst.get(position).getNamaPasien());
+            this.binding.tvName.setText(lst.get(position).getNamaPasien());
+        }
     }
 
     @Override
@@ -87,8 +93,9 @@ public class PertemuanListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         PertemuanListAdapter.ViewHolder viewHolder;
         ItemListPertemuanBinding binding = ItemListPertemuanBinding.inflate(this.activity.getLayoutInflater());
-        viewHolder = new PertemuanListAdapter.ViewHolder(binding, position);
+        viewHolder = new ViewHolder(binding, position);
         View itemview = binding.getRoot();
+        viewHolder.updateView(position);
         return itemview;
     }
 }

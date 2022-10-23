@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
@@ -17,7 +18,7 @@ import com.example.tubes1.databinding.ActivityMainBinding;
 import java.util.HashMap;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements IDokter,IPertemuan {
+public class MainActivity extends AppCompatActivity implements IDokter,IPertemuan,IDokterDropdown {
     private ActivityMainBinding binding;
     private HashMap<String, Fragment> mp;
     private FragmentManager fm;
@@ -29,11 +30,11 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
         this.binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = this.binding.getRoot();
         setContentView(view);
-        this.presenter = new Presenter(this,this);
+        this.presenter = new Presenter(this,this, this,this);
         this.mp = new HashMap<>();
         this.mp.put("HomeFragment", HomeFragment.newInstance());
         this.mp.put("DaftarDokterFragment", DaftarDokterFragment.newInstance(this.presenter));
-        this.mp.put("PertemuanFragment", PertemuanFragment.newInstance());
+        this.mp.put("PertemuanFragment", PertemuanFragment.newInstance(this.presenter,this));
         this.mp.put("DaftarPertemuanFragment", DaftarPertemuanFragment.newInstance(this.presenter));
 
         //set toolbar
@@ -48,10 +49,10 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
         //fragment manager
         this.fm = this.getSupportFragmentManager();
         FragmentTransaction ft = this.fm.beginTransaction();
-//        ft.add(this.binding.fragmentContainer.getId(),this.mp.get("HomeFragment"))
+        ft.add(this.binding.fragmentContainer.getId(),this.mp.get("HomeFragment"))
 //        ft.add(this.binding.fragmentContainer.getId(),this.mp.get("PertemuanFragment"))
 //        ft.add(this.binding.fragmentContainer.getId(),this.mp.get("DaftarDokterFragment"))
-        ft.add(this.binding.fragmentContainer.getId(),this.mp.get("DaftarPertemuanFragment"))
+//        ft.add(this.binding.fragmentContainer.getId(),this.mp.get("DaftarPertemuanFragment"))
                 .commit();
 
         this.fm.setFragmentResultListener(
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
             }
 
             if(this.mp.get("DaftarDokterFragment").isAdded()){
-                ft.hide(this.mp.get("DokterFragment"));
+                ft.hide(this.mp.get("DaftarDokterFragment"));
             }
 
             if(this.mp.get("PertemuanFragment").isAdded()){
@@ -159,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
 
     @Override
     public void updateListDokter(List<Dokter> dokters) {
-       DaftarDokterFragment fragment = (DaftarDokterFragment) this.mp.get("DokterFragment");
+       DaftarDokterFragment fragment = (DaftarDokterFragment) this.mp.get("DaftarDokterFragment");
        fragment.updateListDokter(dokters);
     }
 
@@ -170,4 +171,9 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
     }
 
 
+    @Override
+    public void updateDropdown(List<Dokter> dokters) {
+        PertemuanFragment fragment = (PertemuanFragment) this.mp.get("PertemuanFragment");
+        fragment.updateDropdown(dokters);
+    }
 }

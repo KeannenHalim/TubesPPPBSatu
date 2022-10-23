@@ -24,6 +24,7 @@ public class DaftarDokterFragment extends Fragment implements IDokter{
         return fragment;
     }
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class DaftarDokterFragment extends Fragment implements IDokter{
         this.binding.floatingActionButton.setOnClickListener(this::onClick);
         this.adapter = new DokterListAdapter(getActivity(),getParentFragmentManager(), this.presenter);
         this.binding.lstDokter.setAdapter(adapter);
+        this.presenter.loadDokter();
         return view;
     }
 
@@ -45,4 +47,11 @@ public class DaftarDokterFragment extends Fragment implements IDokter{
         this.adapter.update(dokters);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        this.presenter.loadDokter();
+    }
 }
+
+
