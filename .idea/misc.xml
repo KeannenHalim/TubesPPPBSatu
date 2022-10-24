@@ -3,6 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2435" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/drawable/ic_baseline_access_time_24.xml" value="0.2435" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2435" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.2435" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/drawable/ic_rumah_sakit_cepat_pulang__1_.xml" value="0.2435" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/fragment_add_dokter_dialog.xml" value="0.25" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/fragment_daftar_dokter.xml" value="0.25" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/fragment_daftar_pertemuan.xml" value="0.25" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/fragment_menu.xml" value="0.25" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/fragment_pertemuan.xml" value="0.25" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/item_list_dokter.xml" value="0.25" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/item_list_menu.xml" value="0.25" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/item_list_pertemuan.xml" value="0.25" />
         <entry key="app/src/main/res/drawable-v24/calendar.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable-v24/calendar_month-24px.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable-v24/calendar_month-48px.xml" value="0.1655" />

@@ -4,7 +4,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/green">
 
     <TextView
         android:layout_width="match_parent"
@@ -12,7 +13,9 @@
         android:layout_marginTop="10dp"
         android:text="@string/title_pertemuan"
         android:textAlignment="center"
-        android:textSize="20sp"></TextView>
+        android:textSize="20sp"
+        android:textStyle="bold">
+    </TextView>
 
     <LinearLayout
         android:id="@+id/form_container"
@@ -109,7 +112,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@android:drawable/ic_menu_my_calendar"
-                android:id="@+id/btn_calendar">
+                android:id="@+id/btn_calendar"
+                android:layout_marginTop="3dp">
             </ImageButton>
         </LinearLayout>
 
@@ -139,7 +143,8 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_baseline_access_time_24"
                 android:padding="16dp"
-                android:id="@+id/btn_clock">
+                android:id="@+id/btn_clock"
+                android:layout_marginTop="3dp">
             </ImageButton>
         </LinearLayout>
     </LinearLayout>
@@ -151,5 +156,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
         android:text="@string/btn_simpan"
-        android:id="@+id/btn_simpan"></Button>
+        android:id="@+id/btn_simpan"
+        android:backgroundTint="@color/greenButton"></Button>
 </RelativeLayout>
