@@ -1,5 +1,6 @@
 package com.example.tubes1;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +14,12 @@ import com.example.tubes1.databinding.FragmentKeteranganKeluhanDialogBinding;
 
 public class KeteranganKeluhanDialogFragment extends DialogFragment {
     private FragmentKeteranganKeluhanDialogBinding binding;
+    private String keluhan;
     private KeteranganKeluhanDialogFragment(){}
 
-    public static KeteranganKeluhanDialogFragment newInstance(){
+    public static KeteranganKeluhanDialogFragment newInstance(String keluhan){
         KeteranganKeluhanDialogFragment fragment = new KeteranganKeluhanDialogFragment();
+        fragment.keluhan = keluhan;
         return fragment;
     }
 
@@ -25,6 +28,7 @@ public class KeteranganKeluhanDialogFragment extends DialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.binding = FragmentKeteranganKeluhanDialogBinding.inflate(inflater);
         View view = this.binding.getRoot();
+        this.setKeluhan(this.keluhan);
         this.binding.btnDismiss.setOnClickListener(this::onClick);
         return view;
     }

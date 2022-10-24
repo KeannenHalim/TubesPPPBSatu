@@ -44,6 +44,12 @@ public class PertemuanListAdapter extends BaseAdapter {
             this.binding = binding;
             this.idx = position;
             this.binding.deleteBtn.setOnClickListener(this::onClick);
+            this.binding.btnMore.setOnClickListener(this::onClickMore);
+        }
+
+        private void onClickMore(View view) {
+            KeteranganKeluhanDialogFragment fragment = KeteranganKeluhanDialogFragment.newInstance(lst.get(idx).getKeluhan());
+            fragment.show(fm.beginTransaction(), "dialog");
         }
 
         private void onClick(View view) {
