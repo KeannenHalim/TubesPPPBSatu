@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
         this.mp = new HashMap<>();
         this.mp.put("HomeFragment", HomeFragment.newInstance());
         this.mp.put("DaftarDokterFragment", DaftarDokterFragment.newInstance(this.presenter));
-        this.mp.put("PertemuanFragment", PertemuanFragment.newInstance(this.presenter,this));
+        this.mp.put("AddPertemuanFragment", AddPertemuanFragment.newInstance(this.presenter,this));
         this.mp.put("DaftarPertemuanFragment", DaftarPertemuanFragment.newInstance(this.presenter));
 
         //set toolbar
@@ -78,8 +77,8 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
                 ft.hide(this.mp.get("DaftarDokterFragment"));
             }
 
-            if(this.mp.get("PertemuanFragment").isAdded()){
-                ft.hide(this.mp.get("PertemuanFragment"));
+            if(this.mp.get("AddPertemuanFragment").isAdded()){
+                ft.hide(this.mp.get("AddPertemuanFragment"));
             }
 
             if(this.mp.get("DaftarPertemuanFragment").isAdded()){
@@ -101,8 +100,8 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
                 ft.hide(this.mp.get("DaftarDokterFragment"));
             }
 
-            if(this.mp.get("PertemuanFragment").isAdded()){
-                ft.hide(this.mp.get("PertemuanFragment"));
+            if(this.mp.get("AddPertemuanFragment").isAdded()){
+                ft.hide(this.mp.get("AddPertemuanFragment"));
             }
         }else if(page == 3){
             if(this.mp.get("DaftarDokterFragment").isAdded()){
@@ -120,15 +119,15 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
                 ft.hide(this.mp.get("DaftarPertemuanFragment"));
             }
 
-            if(this.mp.get("PertemuanFragment").isAdded()){
-                ft.hide(this.mp.get("PertemuanFragment"));
+            if(this.mp.get("AddPertemuanFragment").isAdded()){
+                ft.hide(this.mp.get("AddPertemuanFragment"));
             }
 
         }else if(page == 5){
-            if(this.mp.get("PertemuanFragment").isAdded()){
-                ft.show(this.mp.get("PertemuanFragment"));
+            if(this.mp.get("AddPertemuanFragment").isAdded()){
+                ft.show(this.mp.get("AddPertemuanFragment"));
             }else{
-                ft.add(this.binding.fragmentContainer.getId(), this.mp.get("PertemuanFragment"))
+                ft.add(this.binding.fragmentContainer.getId(), this.mp.get("AddPertemuanFragment"))
                         .addToBackStack(null);
             }
 
@@ -171,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
 
     @Override
     public void updateDropdown(List<Dokter> dokters) {
-        PertemuanFragment fragment = (PertemuanFragment) this.mp.get("PertemuanFragment");
+        AddPertemuanFragment fragment = (AddPertemuanFragment) this.mp.get("AddPertemuanFragment");
         fragment.updateDropdown(dokters);
     }
 }

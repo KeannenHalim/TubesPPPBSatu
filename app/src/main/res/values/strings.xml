@@ -24,4 +24,5 @@
     <string name="cancel">CANCEL</string>
     <string name="daftar_dokter">Daftar Dokter</string>
     <string name="daftar_pertemuan">Daftar Pertemuan</string>
+    <string name="dismiss">DISMISS</string>
 </resources>

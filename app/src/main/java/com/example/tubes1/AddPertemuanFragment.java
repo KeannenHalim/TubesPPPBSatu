@@ -2,7 +2,6 @@ package com.example.tubes1;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,15 +20,15 @@ import com.example.tubes1.databinding.FragmentPertemuanBinding;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PertemuanFragment extends Fragment implements IDokterDropdown{
+public class AddPertemuanFragment extends Fragment implements IDokterDropdown{
     private FragmentPertemuanBinding binding;
     private Presenter presenter;
     private List<String> dokter;
     private ArrayAdapter<String> adapter;
     private Activity activity;
-    private PertemuanFragment(){}
-    public static PertemuanFragment newInstance(Presenter presenter, Activity activity){
-        PertemuanFragment fragment = new PertemuanFragment();
+    private AddPertemuanFragment(){}
+    public static AddPertemuanFragment newInstance(Presenter presenter, Activity activity){
+        AddPertemuanFragment fragment = new AddPertemuanFragment();
         fragment.presenter = presenter;
         fragment.activity = activity;
         fragment.dokter = new ArrayList<>();
