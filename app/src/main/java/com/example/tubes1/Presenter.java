@@ -54,6 +54,13 @@ public class Presenter{
         this.uiDdown.updateDropdown(this.list_dokter);
     }
 
+    public void toggleStatus(int idx){
+        Pertemuan temp =  this.list_pertemuan.get(idx);
+        temp.toggleStatus();
+        this.daftarPertemuan.updateFromDb(temp);
+        this.uiP.updateListPertemuan(this.list_pertemuan);
+    }
+
     public void addPertemuan(Pertemuan newPertemuan){
         this.list_pertemuan.add(this.daftarPertemuan.addToDb(newPertemuan));
         this.uiP.updateListPertemuan(this.list_pertemuan);

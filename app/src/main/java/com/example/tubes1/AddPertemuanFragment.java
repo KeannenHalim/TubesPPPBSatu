@@ -115,7 +115,6 @@ public class AddPertemuanFragment extends Fragment implements IDokterDropdown{
         this.presenter.loadDokterDropdown();
     }
 
-
     @Override
     public void updateDropdown(List<Dokter> dokters) {
         this.update(dokters);

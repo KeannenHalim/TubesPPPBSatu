@@ -82,7 +82,7 @@ public class Pertemuan {
     }
 
     public void toggleStatus(){
-        this.status = !status;
+        this.status = true;
     }
 
 }

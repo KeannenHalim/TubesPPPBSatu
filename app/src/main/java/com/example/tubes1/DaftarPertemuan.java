@@ -86,16 +86,30 @@ public class DaftarPertemuan {
             String status = cursor.getString(
                     cursor.getColumnIndexOrThrow((FeedReaderContract.FeedAppointment.COLUMN_NAME_STATUS))
             );
-            pertemuans.add(new Pertemuan(namaDokter,namaPasien,keluhan,tanggal,waktu,id,Boolean.parseBoolean(status)));
+
+            Boolean status1 = false;
+            if(status.equals("1")){
+                status1 = true;
+            }
+            pertemuans.add(new Pertemuan(namaDokter,namaPasien,keluhan,tanggal,waktu,id,status1));
         }
         cursor.close();
         return pertemuans;
     }
 
     public void deleteFromDb(int id){
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
         String selection = FeedReaderContract.FeedAppointment._ID + " = ?";
         String[] selectionArgs = { Integer.toString(id) };
         int deletedRows = db.delete(FeedReaderContract.FeedAppointment.TABLE_NAME, selection, selectionArgs);
+    }
+
+    public void updateFromDb(Pertemuan pertemuan){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(FeedReaderContract.FeedAppointment.COLUMN_NAME_STATUS, pertemuan.getStatus());
+        String selection = FeedReaderContract.FeedAppointment._ID + " = ?";
+        String[] selectionArgs = { Integer.toString(pertemuan.getId()) };
+        int updateRows = db.update(FeedReaderContract.FeedAppointment.TABLE_NAME,cv, selection, selectionArgs);
     }
 }

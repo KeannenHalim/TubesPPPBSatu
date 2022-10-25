@@ -48,7 +48,7 @@ public class PertemuanListAdapter extends BaseAdapter {
         }
 
         private void onClickMore(View view) {
-            KeteranganKeluhanDialogFragment fragment = KeteranganKeluhanDialogFragment.newInstance(lst.get(idx).getKeluhan());
+            KeteranganKeluhanDialogFragment fragment = KeteranganKeluhanDialogFragment.newInstance(lst.get(idx).getKeluhan(),idx,presenter);
             fragment.show(fm.beginTransaction(), "dialog");
         }
 
@@ -79,6 +79,11 @@ public class PertemuanListAdapter extends BaseAdapter {
             this.binding.tvNamaDokter.setText(lst.get(idx).getNamaDokter());
             this.binding.tvTanggal.setText(lst.get(idx).getTanggal());
             this.binding.tvWaktu.setText(lst.get(idx).getWaktu());
+            if(lst.get(idx).getStatus()){
+                this.binding.tvStatus.setText("sudah dilaksanakan");
+            }else{
+                this.binding.tvStatus.setText("belum dilaksanakan");
+            }
         }
     }
 

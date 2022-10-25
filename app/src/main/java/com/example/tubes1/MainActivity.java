@@ -20,14 +20,17 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements IDokter,IPertemuan,IDokterDropdown {
     private ActivityMainBinding binding;
     private HashMap<String, Fragment> mp;
+    private HashMap<Integer, Fragment> pg;
     private FragmentManager fm;
     private Toolbar toolbar;
     private Presenter presenter;
+    private int before;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = this.binding.getRoot();
+        this.before = 1;
         setContentView(view);
         this.presenter = new Presenter(this,this, this,this);
         this.mp = new HashMap<>();
@@ -36,6 +39,11 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
         this.mp.put("AddPertemuanFragment", AddPertemuanFragment.newInstance(this.presenter,this));
         this.mp.put("DaftarPertemuanFragment", DaftarPertemuanFragment.newInstance(this.presenter));
 
+        this.pg = new HashMap<>();
+        this.pg.put((Integer)1, this.mp.get("HomeFragment"));
+        this.pg.put((Integer)2, this.mp.get("DaftarPertemuanFragment"));
+        this.pg.put((Integer)3, this.mp.get("DaftarDokterFragment"));
+        this.pg.put((Integer)5, this.mp.get("AddPertemuanFragment"));
         //set toolbar
         this.toolbar = this.binding.toolbar;
         this.setSupportActionBar(toolbar);
@@ -72,37 +80,17 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
                 ft.add(this.binding.fragmentContainer.getId(), this.mp.get("HomeFragment"))
                         .addToBackStack(null);
             }
-
-            if(this.mp.get("DaftarDokterFragment").isAdded()){
-                ft.hide(this.mp.get("DaftarDokterFragment"));
-            }
-
-            if(this.mp.get("AddPertemuanFragment").isAdded()){
-                ft.hide(this.mp.get("AddPertemuanFragment"));
-            }
-
-            if(this.mp.get("DaftarPertemuanFragment").isAdded()){
-                ft.hide(this.mp.get("DaftarPertemuanFragment"));
-            }
+            ft.hide(this.pg.get((Integer) this.before));
+            this.before = 1;
         }else if(page == 2){
             if(this.mp.get("DaftarPertemuanFragment").isAdded()){
                 ft.show(this.mp.get("DaftarPertemuanFragment"));
-            }else{
+            }else {
                 ft.add(this.binding.fragmentContainer.getId(), this.mp.get("DaftarPertemuanFragment"))
                         .addToBackStack(null);
             }
-
-            if(this.mp.get("HomeFragment").isAdded()){
-                ft.hide(this.mp.get("HomeFragment"));
-            }
-
-            if(this.mp.get("DaftarDokterFragment").isAdded()){
-                ft.hide(this.mp.get("DaftarDokterFragment"));
-            }
-
-            if(this.mp.get("AddPertemuanFragment").isAdded()){
-                ft.hide(this.mp.get("AddPertemuanFragment"));
-            }
+            ft.hide(this.pg.get((Integer) this.before));
+            this.before = 2;
         }else if(page == 3){
             if(this.mp.get("DaftarDokterFragment").isAdded()){
                 ft.show(this.mp.get("DaftarDokterFragment"));
@@ -110,20 +98,12 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
                 ft.add(this.binding.fragmentContainer.getId(), this.mp.get("DaftarDokterFragment"))
                         .addToBackStack(null);
             }
+            ft.hide(this.pg.get((Integer) this.before));
+            this.before = 3;
 
-            if(this.mp.get("HomeFragment").isAdded()){
-                ft.hide(this.mp.get("HomeFragment"));
-            }
-
-            if(this.mp.get("DaftarPertemuanFragment").isAdded()){
-                ft.hide(this.mp.get("DaftarPertemuanFragment"));
-            }
-
-            if(this.mp.get("AddPertemuanFragment").isAdded()){
-                ft.hide(this.mp.get("AddPertemuanFragment"));
-            }
 
         }else if(page == 5){
+            this.presenter.loadDokterDropdown();
             if(this.mp.get("AddPertemuanFragment").isAdded()){
                 ft.show(this.mp.get("AddPertemuanFragment"));
             }else{
@@ -131,17 +111,8 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
                         .addToBackStack(null);
             }
 
-            if(this.mp.get("HomeFragment").isAdded()){
-                ft.hide(this.mp.get("HomeFragment"));
-            }
-
-            if(this.mp.get("DaftarPertemuanFragment").isAdded()){
-                ft.hide(this.mp.get("DaftarPertemuanFragment"));
-            }
-
-            if(this.mp.get("DaftarDokterFragment").isAdded()){
-                ft.hide(this.mp.get("DaftarDokterFragment"));
-            }
+            ft.hide(this.pg.get((Integer) this.before));
+            this.before = 5;
         }
         ft.commit();
 
