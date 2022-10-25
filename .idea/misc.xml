@@ -4,6 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.18229166666666666" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/activity_main.xml" value="0.19972826086956522" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/fragment_add_dokter_dialog.xml" value="0.264" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/fragment_daftar_dokter.xml" value="0.19972826086956522" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/fragment_daftar_pertemuan.xml" value="0.19972826086956522" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/fragment_home.xml" value="0.19972826086956522" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/fragment_keterangan_keluhan_dialog.xml" value="0.19972826086956522" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/fragment_menu.xml" value="0.19972826086956522" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/fragment_pertemuan.xml" value="0.2" />
+        <entry key="..\:/Kuliah/Semester 5/P3B/Tubes1/TubesPPPBSatu/app/src/main/res/layout/item_list_dokter.xml" value="0.19972826086956522" />
         <entry key="app/src/main/res/drawable-v24/calendar.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable-v24/calendar_month-24px.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable-v24/calendar_month-48px.xml" value="0.1655" />
