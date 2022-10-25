@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Tubes 1</string>
     <string name="home_title">Rumah Sakit \nCepat Kembali</string>
-    <string name="home_desc">Pasien cepat kembali ke kehidupannya masing-masing</string>
+    <string name="home_desc">Pasien cepat kembali \nke rumahnya masing-masing</string>
     <string name="btn_home">Buat Pertemuan</string>
     <string name="open_drawer">open drawer</string>
     <string name="close_drawer">close drawer</string>
