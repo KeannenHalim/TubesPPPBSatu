@@ -4,27 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/green">
+    android:background="@color/greenMenu">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerInParent="true">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/home_title"
-            android:textSize="40sp"
-            android:fontFamily="sans-serif-condensed"
-            android:paddingLeft="10dp">
-        </TextView>
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@drawable/ic_rumah_sakit_cepat_pulang__1_"
+            android:layout_gravity="center"></ImageView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/home_desc"
             android:textSize="14sp"
             android:paddingTop="5dp"
-            android:paddingLeft="10dp">
+            android:paddingLeft="10dp"
+            android:textAlignment="center">
         </TextView>
     </LinearLayout>
     <Button
