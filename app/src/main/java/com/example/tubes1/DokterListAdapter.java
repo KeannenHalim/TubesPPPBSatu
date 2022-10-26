@@ -3,6 +3,8 @@ package com.example.tubes1;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +47,13 @@ public class DokterListAdapter extends BaseAdapter {
             this.binding = binding;
             this.idx = position;
             this.binding.deleteBtn.setOnClickListener(this::onClick);
+            this.binding.callBtn.setOnClickListener(this::onClickCall);
+        }
+
+        private void onClickCall(View view) {
+            Uri uri = Uri.parse("tel:"+lst.get(idx).getNoTelepon());
+            Intent intent = new Intent(Intent.ACTION_DIAL,uri);
+            activity.startActivity(intent);
         }
 
         private void onClick(View view) {
