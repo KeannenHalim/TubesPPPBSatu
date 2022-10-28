@@ -31,7 +31,6 @@ public class DaftarPertemuanFragment extends Fragment implements IPertemuan {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.binding = FragmentDaftarPertemuanBinding.inflate(inflater);
         View view = this.binding.getRoot();
-        this.binding.floatingActionButton.setOnClickListener(this::onClick);
         this.adapter = new PertemuanListAdapter(getActivity(),getParentFragmentManager(), this.presenter);
         this.binding.lstPertemuan.setAdapter(adapter);
         this.binding.floatingActionButton.setOnClickListener(this::onClickAdd);
@@ -44,11 +43,6 @@ public class DaftarPertemuanFragment extends Fragment implements IPertemuan {
         bundle.putInt("page",5);
         FragmentManager fm = getParentFragmentManager();
         fm.setFragmentResult("changePage",bundle);
-    }
-
-    private void onClick(View view) {
-        AddDokterDialogFragment fragment = AddDokterDialogFragment.newInstance(this.presenter);
-        fragment.show(this.getParentFragmentManager().beginTransaction(),"dialog");
     }
 
     @Override

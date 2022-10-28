@@ -84,4 +84,13 @@ public class Presenter{
         this.uiP.updateListPertemuan(this.list_pertemuan);
     }
 
+    public void updateDokter(int idx, String nama, String spesialis, String telepon){
+        Dokter temp = this.list_dokter.get(idx);
+        temp.setNama(nama);
+        temp.setNoTelepon(telepon);
+        temp.setSpecialist(spesialis);
+        this.daftarDokter.updateToDb(temp);
+        this.uiD.updateListDokter(this.list_dokter);
+    }
+
 }

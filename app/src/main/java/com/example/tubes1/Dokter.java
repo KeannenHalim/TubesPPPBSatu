@@ -13,7 +13,17 @@ public class Dokter{
         this.noTelepon = noTelepon;
         this.id = id;
     }
+    public void setNama(String nama){
+        this.nama = nama;
+    }
 
+    public void setSpecialist(String specialist){
+        this.specialist = specialist;
+    }
+
+    public void setNoTelepon(String telepon){
+        this.noTelepon = telepon;
+    }
     public String getNama(){
         return this.nama;
     }

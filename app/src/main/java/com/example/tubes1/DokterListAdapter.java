@@ -48,6 +48,12 @@ public class DokterListAdapter extends BaseAdapter {
             this.idx = position;
             this.binding.deleteBtn.setOnClickListener(this::onClick);
             this.binding.callBtn.setOnClickListener(this::onClickCall);
+            this.binding.btnEdit.setOnClickListener(this::onClickEdit);
+        }
+
+        private void onClickEdit(View view) {
+            EditDokterDialogFragment fragment = EditDokterDialogFragment.newInstance(presenter, lst.get(idx).getNama(), lst.get(idx).getSpecialist(),lst.get(idx).getNoTelepon(),idx);
+            fragment.show(fm.beginTransaction(),"dialog");
         }
 
         private void onClickCall(View view) {

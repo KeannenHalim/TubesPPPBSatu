@@ -27,6 +27,18 @@ public class DaftarDokter {
         return dokter;
     }
 
+    public void updateToDb (Dokter dokter){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(FeedReaderContract.FeedDokter.COLUMN_NAME_NAMA, dokter.getNama());
+        values.put(FeedReaderContract.FeedDokter.COLUMN_NAME_SPESIALIS, dokter.getSpecialist());
+        values.put(FeedReaderContract.FeedDokter.COLUMN_NAME_NOTELEPON, dokter.getNoTelepon());
+        String selection = FeedReaderContract.FeedDokter._ID + " = ?";
+        String[] selectionArgs = {Integer.toString(dokter.getId())};
+        long newRowId = db.update(FeedReaderContract.FeedDokter.TABLE_NAME,values,selection,selectionArgs);
+    }
+
     public List<Dokter> getFromDb(){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
