@@ -74,6 +74,55 @@ public class DaftarDokter {
         return dokters;
     }
 
+    public List<Dokter> getFromDbFilter(String filter){
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        String[] projection = {
+                BaseColumns._ID,
+                FeedReaderContract.FeedDokter.COLUMN_NAME_NAMA,
+                FeedReaderContract.FeedDokter.COLUMN_NAME_SPESIALIS,
+                FeedReaderContract.FeedDokter.COLUMN_NAME_NOTELEPON
+        };
+
+        String sortOrder =
+                FeedReaderContract.FeedDokter._ID + " ASC";
+        String selection = FeedReaderContract.FeedDokter.COLUMN_NAME_NAMA + " Like ?";
+        filter = "%"+filter+"%";
+        String[] selectionArgs = {filter};
+        Cursor cursor = db.query(
+                FeedReaderContract.FeedDokter.TABLE_NAME,   // The table to query
+                projection,             // The array of columns to return (pass null to get all)
+                selection,              // The columns for the WHERE clause
+                selectionArgs,          // The values for the WHERE clause
+                null,                   // don't group the rows
+                null,                   // don't filter by row groups
+                sortOrder               // The sort order
+        );
+
+        List<Dokter> dokters = new ArrayList<>();
+        while(cursor.moveToNext()) {
+            int id = cursor.getInt(
+                    cursor.getColumnIndexOrThrow(FeedReaderContract.FeedDokter._ID)
+            );
+
+            String nama = cursor.getString(
+                    cursor.getColumnIndexOrThrow((FeedReaderContract.FeedDokter.COLUMN_NAME_NAMA))
+            );
+
+            String spesialis = cursor.getString(
+                    cursor.getColumnIndexOrThrow((FeedReaderContract.FeedDokter.COLUMN_NAME_SPESIALIS))
+            );
+
+            String telepon = cursor.getString(
+                    cursor.getColumnIndexOrThrow((FeedReaderContract.FeedDokter.COLUMN_NAME_NOTELEPON))
+            );
+
+            dokters.add(new Dokter(nama,spesialis,telepon,id));
+        }
+        cursor.close();
+        return dokters;
+    }
+
     public void deleteFromDb(int id){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String selection = FeedReaderContract.FeedDokter._ID + " = ?";

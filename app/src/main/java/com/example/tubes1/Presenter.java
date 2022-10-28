@@ -48,6 +48,12 @@ public class Presenter{
         this.uiD.updateListDokter(this.list_dokter);
     }
 
+    public void loadDokterFilter(String filter){
+        this.list_dokter.clear();
+        this.list_dokter.addAll(this.daftarDokter.getFromDbFilter(filter));
+        this.uiD.updateListDokter(this.list_dokter);
+    }
+
     public void loadDokterDropdown(){
         this.list_dokter.clear();
         this.list_dokter.addAll(this.daftarDokter.getFromDb());

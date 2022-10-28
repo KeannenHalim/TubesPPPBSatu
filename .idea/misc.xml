@@ -38,6 +38,8 @@
         <entry key="app/src/main/res/layout/item_list_pertemuan.xml" value="0.15625" />
         <entry key="app/src/main/res/layout/list_menu.xml" value="0.18115942028985507" />
         <entry key="app/src/main/res/layout/list_nemu.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/search_menu.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/menu/search_menu.xml" value="0.15625" />
       </map>
     </option>
   </component>
