@@ -79,6 +79,7 @@ public class AddPertemuanFragment extends Fragment implements IDokterDropdown{
         Bundle bundle = new Bundle();
         bundle.putInt("page",2);
         fm.setFragmentResult("changePage",bundle);
+        this.clear();
     }
 
     private void showTimePicker(View view) {
@@ -107,6 +108,14 @@ public class AddPertemuanFragment extends Fragment implements IDokterDropdown{
             this.dokter.add(dokters.get(i).getNama());
         }
         this.adapter.notifyDataSetChanged();
+    }
+
+    public void clear(){
+        this.binding.choice.setText("");
+        this.binding.namaPasien.setText("");
+        this.binding.keluhan.setText("");
+        this.binding.etIsiTanggal.setText("");
+        this.binding.etIsiWaktu.setText("");
     }
 
     @Override
