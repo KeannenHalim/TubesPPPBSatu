@@ -28,4 +28,6 @@
     <string name="markAsDone">MARK AS DONE</string>
     <string name="status">Status</string>
     <string name="save">SAVE</string>
+    <string name="edit_dokter">Edit Dokter</string>
+    <string name="tambah_dokter">Tambah Dokter</string>
 </resources>

@@ -9,6 +9,22 @@
         android:orientation="vertical"
         android:background="@color/green">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/greenMenu">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tambah_dokter"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="25sp">
+            </TextView>
+
+        </LinearLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/et_nama"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
