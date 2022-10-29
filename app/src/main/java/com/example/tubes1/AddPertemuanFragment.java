@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
@@ -85,11 +86,13 @@ public class AddPertemuanFragment extends Fragment implements IDokterDropdown{
     private void showTimePicker(View view) {
         DialogFragment newFragment = new TimePickerFragment();
         newFragment.show(getParentFragmentManager(),"timePicker");
+        hideKeyboard(getActivity());
     }
 
     private void showDatePicker(View view) {
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getParentFragmentManager(), "datePicker");
+        hideKeyboard(getActivity());
     }
 
     public void showEtTanggal(String date){
@@ -127,5 +130,14 @@ public class AddPertemuanFragment extends Fragment implements IDokterDropdown{
     @Override
     public void updateDropdown(List<Dokter> dokters) {
         this.update(dokters);
+    }
+
+    public static void hideKeyboard(Activity activity) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        View view = activity.getCurrentFocus();
+        if (view == null) {
+            view = new View(activity);
+        }
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }
