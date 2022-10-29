@@ -21,6 +21,7 @@
                 android:id="@+id/et_isiNama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
                 android:drawableLeft="@drawable/ic_baseline_person_24"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -36,6 +37,7 @@
                 android:id="@+id/et_isiSpesialis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
                 android:drawableLeft="@drawable/ic_baseline_work_24"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -51,6 +53,7 @@
                 android:id="@+id/et_isiTelepon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
                 android:drawableLeft="@drawable/ic_baseline_phone_24" />
         </com.google.android.material.textfield.TextInputLayout>
         <LinearLayout
