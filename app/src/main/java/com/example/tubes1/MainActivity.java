@@ -10,12 +10,14 @@ import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.tubes1.databinding.ActivityMainBinding;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity implements IDokter,IPertemuan,IDokterDropdown {
     private ActivityMainBinding binding;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
     private FragmentManager fm;
     private Toolbar toolbar;
     private Presenter presenter;
+    private Stack<Integer> stack;
     private int before;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
         View view = this.binding.getRoot();
         this.before = 1;
         setContentView(view);
+        this.stack = new Stack<>();
         this.presenter = new Presenter(this,this, this,this);
         this.mp = new HashMap<>();
         this.mp.put("HomeFragment", HomeFragment.newInstance());
@@ -72,6 +76,8 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
 
     private void changePage(int page){
         this.binding.drawerLayout.closeDrawers();
+        Log.d("before", this.before+"");
+        Log.d("now", page+"");
         FragmentTransaction ft = this.fm.beginTransaction();
         if(page != before) {
             if (page == 1) {
@@ -115,6 +121,7 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
                 ft.hide(this.pg.get((Integer) this.before));
                 this.before = 5;
             }
+            stack.add(before);
             ft.commit();
 
             if (page == 4) {
@@ -126,6 +133,17 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
     private void closeApplication(){
         this.moveTaskToBack(true);
         this.finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if(!stack.isEmpty()) {
+            stack.pop();
+            if(!stack.isEmpty()) {
+                this.before = stack.pop();
+            }
+        }
     }
 
     @Override
