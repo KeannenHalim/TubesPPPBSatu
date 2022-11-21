@@ -76,8 +76,6 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
 
     private void changePage(int page){
         this.binding.drawerLayout.closeDrawers();
-        Log.d("before", this.before+"");
-        Log.d("now", page+"");
         FragmentTransaction ft = this.fm.beginTransaction();
         if(page != before) {
             if (page == 1) {
