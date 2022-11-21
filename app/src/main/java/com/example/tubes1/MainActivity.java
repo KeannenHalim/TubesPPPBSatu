@@ -77,71 +77,32 @@ public class MainActivity extends AppCompatActivity implements IDokter,IPertemua
     private void changePage(int page){
         this.binding.drawerLayout.closeDrawers();
         FragmentTransaction ft = this.fm.beginTransaction();
-        if(page != before) {
+
             if (page == 1) {
-                if (this.mp.get("HomeFragment").isAdded()) {
-                    ft.show(this.mp.get("HomeFragment"));
-                } else {
-                    ft.add(this.binding.fragmentContainer.getId(), this.mp.get("HomeFragment"))
-                            .addToBackStack(null);
-                }
-                ft.hide(this.pg.get((Integer) this.before));
-                this.before = 1;
+                ft.replace(this.binding.fragmentContainer.getId(),this.mp.get("HomeFragment"))
+                        .addToBackStack(null);
             } else if (page == 2) {
-                if (this.mp.get("DaftarPertemuanFragment").isAdded()) {
-                    ft.show(this.mp.get("DaftarPertemuanFragment"));
-                } else {
-                    ft.add(this.binding.fragmentContainer.getId(), this.mp.get("DaftarPertemuanFragment"))
-                            .addToBackStack(null);
-                }
-                ft.hide(this.pg.get((Integer) this.before));
-                this.before = 2;
+                ft.replace(this.binding.fragmentContainer.getId(),this.mp.get("DaftarPertemuanFragment"))
+                        .addToBackStack(null);
             } else if (page == 3) {
-                if (this.mp.get("DaftarDokterFragment").isAdded()) {
-                    ft.show(this.mp.get("DaftarDokterFragment"));
-                } else {
-                    ft.add(this.binding.fragmentContainer.getId(), this.mp.get("DaftarDokterFragment"))
-                            .addToBackStack(null);
-                }
-                ft.hide(this.pg.get((Integer) this.before));
-                this.before = 3;
-
-
+                ft.replace(this.binding.fragmentContainer.getId(),this.mp.get("DaftarDokterFragment"))
+                        .addToBackStack(null);
             } else if (page == 5) {
                 this.presenter.loadDokterDropdown();
-                if (this.mp.get("AddPertemuanFragment").isAdded()) {
-                    ft.show(this.mp.get("AddPertemuanFragment"));
-                } else {
-                    ft.add(this.binding.fragmentContainer.getId(), this.mp.get("AddPertemuanFragment"))
-                            .addToBackStack(null);
-                }
-
-                ft.hide(this.pg.get((Integer) this.before));
-                this.before = 5;
+                ft.replace(this.binding.fragmentContainer.getId(),this.mp.get("AddPertemuanFragment"))
+                        .addToBackStack(null);
             }
-            stack.add(before);
             ft.commit();
 
             if (page == 4) {
                 this.closeApplication();
             }
-        }
+
     }
 
     private void closeApplication(){
         this.moveTaskToBack(true);
         this.finish();
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        if(!stack.isEmpty()) {
-            stack.pop();
-            if(!stack.isEmpty()) {
-                this.before = stack.pop();
-            }
-        }
     }
 
     @Override
